@@ -16,7 +16,7 @@ aldığınız sayıyı kullanmayacaksınız.
 Input: 19
 Output:
     Step1  için: 19 --- 58 --- 29 --- 88 --- 44 --- 22 --- 11 --- 34 --- 17 --- 52 --- 26 --- 13 --- 40 --- 20 --- 10 --- 5 --- 16 --- 8 --- 4 --- 2 --- 1
-    Step2 için: 19 için max nokta: 88    // bu kısmı 1den 100e kadar her sayı için yazdıracaksınız STEP2'de
+    Step2 için: 19 için max nokta: 88    // bu kısmı 2den 100e kadar her sayı için yazdıracaksınız STEP2'de
 
 not:sorunun STEP1 kısmı 4 yıldız, sorunun asıl zor kısmı STEP2.Bunu çözebilirseniz for ve while döngülerini GAYET İYİ bir şekilde anlamışsınız demektir.
 Şuan sizin için zor bir soru, danışmaktan çekinmeyin.*/
@@ -25,20 +25,27 @@ public class main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
-        System.out.print("Bir Sayı giriniz: ");
         
-        int x;
-        x = scanner.nextInt();
         
-        while(x > 1){
-            if(x % 2 == 0){
-                x /= 2;
+        //System.out.print("Bir Sayı giriniz: ");
+        //x = scanner.nextInt();
+        
+        for (int i = 2; i <= 100; i++) {
+            int enbuyuk = 0;
+            int x = i;
+            while(x > 1){
+                if(x % 2 == 0){
+                    x /= 2;
+                }
+                else{
+                    x*=3;
+                    x++;
+                }
+                if(x > enbuyuk){
+                    enbuyuk = x;
+                }
             }
-            else{
-                x*=3;
-                x++;
-            }
-            System.out.println(x);
+            System.out.println("enbuyuk " + enbuyuk); 
         }
     }
 }
